@@ -17,3 +17,11 @@ jobs:
       - uses: actions/checkout@v2
       - run: ./download-gh.sh
       - run: ./gh/bin/gh --version
+  shellcheck:
+    name: shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker://koalaman/shellcheck:stable
+        with:
+          args: ./download-gh.sh
