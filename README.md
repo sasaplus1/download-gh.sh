@@ -26,6 +26,12 @@ gh version 1.9.2 (2021-04-20)
 https://github.com/cli/cli/releases/tag/v1.9.2
 ```
 
+### Execute script on the fly
+
+```console
+$ curl -L https://git.io/sasaplus1-gh | bash -
+```
+
 ## License
 
 The MIT license.
