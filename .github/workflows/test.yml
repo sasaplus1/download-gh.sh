@@ -1,0 +1,19 @@
+name: test
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  execute:
+    name: execute
+    strategy:
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - run: ./download-gh.sh
+      - run: ./gh/bin/gh --version
