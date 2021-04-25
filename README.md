@@ -4,6 +4,28 @@
 
 download [GitHub CLI](https://cli.github.com/)
 
+## How to use
+
+download `gh` to current directory:
+
+```console
+$ ./download-gh.sh
+```
+
+download `gh` to target directory if specified:
+
+```console
+$ ./download-gh.sh /path/to/dir
+```
+
+test:
+
+```console
+$ ./gh/bin/gh --version
+gh version 1.9.2 (2021-04-20)
+https://github.com/cli/cli/releases/tag/v1.9.2
+```
+
 ## License
 
 The MIT license.
