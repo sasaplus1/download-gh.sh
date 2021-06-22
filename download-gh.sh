@@ -7,7 +7,7 @@ __main() {
 
   local dir=
 
-  if [ -z "$dir" ]
+  if [ -z "${1-}" ]
   then
     dir="$PWD"
   else
