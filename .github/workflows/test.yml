@@ -16,10 +16,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: ./download-gh.sh
-      - run: ./gh/bin/gh --version
-      - run: mkdir -p ./opt
-      - run: ./download-gh.sh ./opt
-      - run: ./opt/gh/bin/gh --version
+      - run: test -f ./gh.tar.gz
+      - run: ./download-gh.sh /tmp
+      - run: test -f /tmp/gh.tar.gz
   shellcheck:
     name: shellcheck
     runs-on: ubuntu-latest
