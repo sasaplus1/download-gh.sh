@@ -27,6 +27,15 @@ gh version 1.11.0 (2021-06-03)
 https://github.com/cli/cli/releases/tag/v1.11.0
 ```
 
+if you want only binary:
+
+```console
+$ tar fx gh.tar.gz --strip-components 2 gh*/bin/gh
+$ ./gh --version
+gh version 1.11.0 (2021-06-03)
+https://github.com/cli/cli/releases/tag/v1.11.0
+```
+
 ### Execute script on the fly
 
 ```console
