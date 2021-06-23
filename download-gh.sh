@@ -46,8 +46,6 @@ __main() {
   tgz="${dir}/gh.tar.gz"
 
   curl -fsSL -o "$tgz" "$url"
-  mkdir -p "${dir}/gh"
-  tar fx "$tgz" -C "${dir}/gh" --strip-components 1
 }
 __main "$@"
 
