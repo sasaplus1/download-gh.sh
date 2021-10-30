@@ -37,7 +37,7 @@ __main() {
   esac
 
   local version=
-  version=1.11.0
+  version=2.2.0
 
   local url=
   url="https://github.com/cli/cli/releases/download/v${version}/gh_${version}_${kernel}_${arch}.tar.gz"
