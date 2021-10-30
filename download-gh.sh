@@ -36,14 +36,9 @@ __main() {
     Linux)  kernel=linux ;;
   esac
 
-  local version=
-  version=2.2.0
-
-  local url=
-  url="https://github.com/cli/cli/releases/download/v${version}/gh_${version}_${kernel}_${arch}.tar.gz"
-
-  local tgz=
-  tgz="${dir}/gh.tar.gz"
+  local -r version=2.2.0
+  local -r url="https://github.com/cli/cli/releases/download/v${version}/gh_${version}_${kernel}_${arch}.tar.gz"
+  local -r tgz="${dir}/gh.tar.gz"
 
   curl -fsSL -o "$tgz" "$url"
 }
