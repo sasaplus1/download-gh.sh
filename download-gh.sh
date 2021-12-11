@@ -36,7 +36,13 @@ __main() {
     Linux)  kernel=linux ;;
   esac
 
-  local -r version=2.2.0
+  # NOTE: gh for Apple Silicon is not found currently
+  if [ "$arch" == 'arm64' ] && [ "$kernel" == 'macOS' ]
+  then
+    arch=amd64
+  fi
+
+  local -r version=2.3.0
   local -r url="https://github.com/cli/cli/releases/download/v${version}/gh_${version}_${kernel}_${arch}.tar.gz"
   local -r tgz="${dir}/gh.tar.gz"
 
