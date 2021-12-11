@@ -20,6 +20,9 @@ jobs:
       - run: test -f ./gh.tar.gz
       - run: ./download-gh.sh /tmp
       - run: test -f /tmp/gh.tar.gz
+      - run: mkdir gh
+      - run: tar fxv gh.tar.gz --strip-components 1 -C gh
+      - run: ./gh/bin/gh --version
   shellcheck:
     name: shellcheck
     runs-on: ubuntu-latest
