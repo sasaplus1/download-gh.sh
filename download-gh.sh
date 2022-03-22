@@ -42,7 +42,7 @@ __main() {
     arch=amd64
   fi
 
-  local -r version=2.3.0
+  local -r version=2.6.0
   local -r url="https://github.com/cli/cli/releases/download/v${version}/gh_${version}_${kernel}_${arch}.tar.gz"
   local -r tgz="${dir}/gh.tar.gz"
 
