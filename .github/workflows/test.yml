@@ -17,8 +17,8 @@ jobs:
       - run: test -f /tmp/gh.zip
       - run: mkdir gh
       - run: unzip gh.zip
-      - run: >
-          "./gh_*/bin/gh" --version
+      - run: mv "gh_*" gh
+      - run: ./gh/bin/gh --version
   execute-on-ubuntu:
     name: execute on Ubuntu
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
