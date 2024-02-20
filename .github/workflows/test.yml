@@ -17,7 +17,7 @@ jobs:
       - run: test -f /tmp/gh.zip
       - run: mkdir gh
       - run: unzip gh.zip
-      - run: mv "gh_*" gh
+      - run: mv gh_* gh
       - run: ./gh/bin/gh --version
   execute-on-ubuntu:
     name: execute on Ubuntu
