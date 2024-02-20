@@ -15,7 +15,6 @@ jobs:
       - run: test -f ./gh.zip
       - run: ./download-gh.sh /tmp
       - run: test -f /tmp/gh.zip
-      - run: mkdir gh
       - run: unzip gh.zip
       - run: mv gh_* gh
       - run: ./gh/bin/gh --version
