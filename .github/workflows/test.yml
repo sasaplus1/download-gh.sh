@@ -5,17 +5,25 @@ on:
   - pull_request
 
 jobs:
-  execute:
-    name: execute
+  execute-on-macos:
+    name: execute on macOS
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
-    strategy:
-      matrix:
-        os:
-          - macos-latest
-          - ubuntu-latest
-    runs-on: ${{ matrix.os }}
+    runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      - run: ./download-gh.sh
+      - run: test -f ./gh.zip
+      - run: ./download-gh.sh /tmp
+      - run: test -f /tmp/gh.zip
+      - run: mkdir gh
+      - run: unzip gh.zip
+      - run: ./gh_*/bin/gh --version
+  execute-on-ubuntu:
+    name: execute on Ubuntu
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
       - run: ./download-gh.sh
       - run: test -f ./gh.tar.gz
       - run: ./download-gh.sh /tmp
@@ -28,7 +36,7 @@ jobs:
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: docker://koalaman/shellcheck:stable
         with:
           args: ./download-gh.sh
