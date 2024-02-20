@@ -31,24 +31,25 @@ __main() {
     x86_64) arch=amd64 ;;
   esac
 
-  local kernel=
+  local os=
+  local ext=
 
   case "$(uname -s)" in
-    Darwin) kernel=macOS ;;
-    Linux)  kernel=linux ;;
+    Darwin)
+      os=macOS
+      ext=zip
+      ;;
+    Linux)
+      os=linux
+      ext=tar.gz
+      ;;
   esac
 
-  # NOTE: gh for Apple Silicon is not found currently
-  if [ "$arch" == 'arm64' ] && [ "$kernel" == 'macOS' ]
-  then
-    arch=amd64
-  fi
+  local -r version=2.44.1
+  local -r url="https://github.com/cli/cli/releases/download/v${version}/gh_${version}_${os}_${arch}.${ext}"
+  local -r archive="${dir}/gh.${ext}"
 
-  local -r version=2.21.2
-  local -r url="https://github.com/cli/cli/releases/download/v${version}/gh_${version}_${kernel}_${arch}.tar.gz"
-  local -r tgz="${dir}/gh.tar.gz"
-
-  curl -fsSL -o "$tgz" "$url"
+  curl -fsSL -o "$archive" "$url"
 }
 __main "$@"
 
