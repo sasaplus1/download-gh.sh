@@ -45,7 +45,7 @@ __main() {
       ;;
   esac
 
-  local -r version=2.64.0
+  local -r version=2.65.0
   local -r url="https://github.com/cli/cli/releases/download/v${version}/gh_${version}_${os}_${arch}.${ext}"
   local -r archive="${dir}/gh.${ext}"
 
