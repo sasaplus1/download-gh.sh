@@ -8,8 +8,8 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
-        "^download-gh.sh$"
+      "managerFilePatterns": [
+        "/^download-gh.sh$/"
       ],
       "matchStrings": [
         "version=(?<currentValue>\\S+)"
